@@ -1,0 +1,41 @@
+<div class="container is-fluid">
+    <h1 class="title is-1"> Eat a Burger</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col s6">
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <div>
+                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                        <button class="button is-link">{{this.burger_name}}</button>
+                    </form>
+                    <br>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+
+            <div>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div>
+              <div>
+                {{this.burger_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+<h2>Add A Burger </h2>
+
+<div>
+  <div>
+    <form action="/burgers" method="POST">
+      <input type="text">
+      <button class="button is-link">Add The Burger</button>
+    </form>
+  </div>
+</div>
